@@ -1,0 +1,107 @@
+/* ===== 1) EDITAR no seu bloco existente ===== 
+   Coluna da IA mais larga (evita quebras em "Baseado no histórico..." e "Ver evidências"): */
+/*
+.detail-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.95fr);
+}
+*/
+
+/* ===== 2) COLAR abaixo do bloco .detail-grid =====
+   Seletores com .ui-card.* para vencer a ordem de carregamento do CSS base do card. */
+
+/* Faixa de contexto: um único card, SLA à esquerda e dados separados por divisórias */
+.ui-card.incident-context {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.9fr) minmax(0, 2.4fr);
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-card, #fff);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md, 12px);
+}
+.incident-context .incident-context__sla > * {
+  height: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.incident-context .incident-context__facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--color-border);
+}
+.incident-context__facts > div {
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  padding: 14px 18px;
+  min-width: 0;
+}
+.incident-context__facts > div + div {
+  border-left: 1px solid var(--color-border);
+}
+.incident-context__facts dt {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+.incident-context__facts dd {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Decisão operacional: duas colunas iguais, sem texto espremido */
+.decision-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.decision-summary__priority .decision-score {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.decision-summary__info {
+  padding-left: 20px;
+  border-left: 1px solid var(--color-border);
+  align-self: center;
+}
+.decision-summary__info p:first-child {
+  margin-top: 0;
+}
+.decision-summary__info p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .ui-card.incident-context,
+  .decision-summary {
+    grid-template-columns: 1fr;
+  }
+  .incident-context .incident-context__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .incident-context__facts > div:nth-child(odd) {
+    border-left: 0;
+  }
+  .incident-context__facts > div:nth-child(n + 3) {
+    border-top: 1px solid var(--color-border);
+  }
+  .decision-summary__info {
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+}

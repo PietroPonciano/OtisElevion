@@ -1,0 +1,48 @@
+export const incidentStatuses = {
+  RECEIVED: 'RECEIVED',
+  AWAITING_CLASSIFICATION: 'AWAITING_CLASSIFICATION',
+  AWAITING_INFORMATION: 'AWAITING_INFORMATION',
+  CLASSIFIED: 'CLASSIFIED',
+  PLAN_PENDING: 'PLAN_PENDING',
+  PLAN_APPROVED: 'PLAN_APPROVED',
+  READY_TO_DISPATCH: 'READY_TO_DISPATCH',
+  DISPATCHED: 'DISPATCHED',
+  IN_TRANSIT: 'IN_TRANSIT',
+  ON_SITE: 'ON_SITE',
+  IN_DIAGNOSIS: 'IN_DIAGNOSIS',
+  IN_MAINTENANCE: 'IN_MAINTENANCE',
+  AWAITING_RESOURCE: 'AWAITING_RESOURCE',
+  AWAITING_THIRD_PARTY: 'AWAITING_THIRD_PARTY',
+  RESOLVED: 'RESOLVED',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED',
+}
+
+export const statusLabels = {
+  RECEIVED: 'Recebida',
+  AWAITING_CLASSIFICATION: 'Aguardando classificação',
+  AWAITING_INFORMATION: 'Aguardando informação',
+  CLASSIFIED: 'Classificada',
+  PLAN_PENDING: 'Plano pendente',
+  PLAN_APPROVED: 'Plano aprovado',
+  READY_TO_DISPATCH: 'Pronta para despacho',
+  DISPATCHED: 'Despachada',
+  IN_TRANSIT: 'Em deslocamento',
+  ON_SITE: 'No local',
+  IN_DIAGNOSIS: 'Em diagnóstico',
+  IN_MAINTENANCE: 'Em manutenção',
+  AWAITING_RESOURCE: 'Aguardando recurso',
+  AWAITING_THIRD_PARTY: 'Aguardando terceiro',
+  RESOLVED: 'Resolvida',
+  CLOSED: 'Encerrada',
+  CANCELLED: 'Cancelada',
+}
+
+export const legacyStatusMap = {
+  received: 'RECEIVED',
+  triage: 'AWAITING_CLASSIFICATION',
+  dispatched: 'DISPATCHED',
+  on_site: 'ON_SITE',
+  resolved: 'RESOLVED',
+  closed: 'CLOSED',
+}
