@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { HugeiconsIcon } from '@hugeicons/react'
 import {
   AiChat02Icon,
@@ -8,6 +9,7 @@ import {
   RefreshIcon,
 } from '@hugeicons/core-free-icons'
 import { chatMessages, insight, traceSteps } from '../../../data/ai'
+import { createRandomIncident } from '../../../data/incidentStore'
 import './IncidentChatBot.css'
 
 const confidenceLabel = { alta: 'Confiança alta', media: 'Confiança média', baixa: 'Confiança baixa' }
@@ -157,6 +159,13 @@ function ReasoningTrace({ steps, open, running, onToggle }) {
 function IncidentChatbot() {
   const [traceOpen, setTraceOpen] = useState(false)
   const threadRef = useRef(null)
+  const navigate = useNavigate()
+
+  // "Usar estas informações": registra um chamado aleatório e abre a tela dele.
+  const confirmIncident = () => {
+    const incident = createRandomIncident()
+    navigate(`/incidents/${incident.id}`)
+  }
 
   // Como no fluxo real, a conversa termina rolada até a previsão.
   useEffect(() => {
@@ -245,7 +254,7 @@ function IncidentChatbot() {
 
       <div className="ai-chat__composer">
         <div className="ai-chat__chips">
-          <button type="button" className="ai-chat__confirm">
+          <button type="button" className="ai-chat__confirm" onClick={confirmIncident}>
             <HugeiconsIcon icon={CheckmarkCircle02Icon} size={15} /> Usar estas informações
           </button>
           <button type="button">
